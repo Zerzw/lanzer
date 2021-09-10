@@ -38,7 +38,7 @@ bot.on('text', (ctx) => {
     ctx.reply('Estás escribiendo un mensaje, no seas pesado')
 })
 
-bot.on('Granitos', async function init(){
+bot.hears('Granitos', async function init(){
     const $ = await request({
         uri: 'https://news.agrofy.com.ar/granos/precios-pizarra'
         transform: body => cheerio.load(body)

@@ -1,6 +1,7 @@
 require ('dotenv').config()
 const {Telegraf} = require('telegraf')
 const axios = require('axios')
+const request = require('request');
 
 axios
 	.get('https://news.agrofy.com.ar/granos/precios-pizarra')
@@ -31,7 +32,7 @@ bot.on('text', ctx => {
     ctx.reply('Estás escribiendo, pesado')
 })
 
-bot.onText(/\/dolar/, function (msg) {
+bot.on(/\/dolar/, function (msg) {
     request('https://Twitter.com/DolarToday', function (error, response, html) {
         if (!error && response.statusCode == 200) {
             var loadedHTML = cheerio.load(html);
