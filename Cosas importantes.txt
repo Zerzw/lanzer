@@ -1,0 +1,4 @@
+Que es Cheerio
+Cheerio analiza el marcado y proporciona una API para atravesar / manipular la estructura de datos resultante. No interpreta el resultado como lo hace un navegador web. Específicamente, 
+no produce una representación visual, no aplica CSS, no carga recursos externos ni ejecuta JavaScript. Esto hace que Cheerio sea mucho, mucho más rápido que otras soluciones . 
+Si su caso de uso requiere alguna de esta funcionalidad, debe considerar proyectos como Puppeteer o JSDom .

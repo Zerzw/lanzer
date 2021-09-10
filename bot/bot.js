@@ -38,13 +38,24 @@ bot.on('text', (ctx) => {
     ctx.reply('Estás escribiendo un mensaje, no seas pesado')
 })
 
+async function init(){
+    const $ = await request({
+        uri: 'https://news.agrofy.com.ar/granos/precios-pizarra'
+        transform: body => cheerio.load(body)
+
+    });
+
+    console.log($)
+
+}
+
 bot.on(/\/dolar/, function (msg) {
     request('https://Twitter.com/DolarToday', function (error, response, html) {
         if (!error && response.statusCode == 200) {
             var loadedHTML = cheerio.load(html);
             var contentContainer = loadedHTML('p.ProfileHeaderCard-bio').text();
             var soughtContent = contentContainer.substring(contentContainer.search("Bs."), contentContainer.search(" y el"));
-            return bot.sendMessage(msg.chat.id, soughtContent); //outputs a value like `Bs. 1904,48`
+            return bot.sendMessage(msg.chat.id, soughtContent);
         } else {
             console.log(error);
         }
