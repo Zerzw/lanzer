@@ -38,7 +38,7 @@ bot.on('text', (ctx) => {
     ctx.reply('Estás escribiendo un mensaje, no seas pesado')
 })
 
-async function init(){
+bot.on('Granitos', async function init(){
     const $ = await request({
         uri: 'https://news.agrofy.com.ar/granos/precios-pizarra'
         transform: body => cheerio.load(body)
@@ -47,7 +47,7 @@ async function init(){
 
     console.log($)
 
-}
+})
 
 bot.on(/\/dolar/, function (msg) {
     request('https://Twitter.com/DolarToday', function (error, response, html) {
